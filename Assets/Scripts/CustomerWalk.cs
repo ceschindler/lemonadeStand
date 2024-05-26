@@ -39,18 +39,16 @@ public class CustomerWalk : MonoBehaviour
         // Determine if customer is in a valid location to stop for some lemonade
         if ((xPosition > stoppingLocation) && !isPaused) 
         {
-            // Stop customer movement
+            // Stop customer movement and start wait timer
             isPaused = true;
             moveSpeed = 0;
+            timer = Time.time;
         } 
         else 
         {
-            // Customer is stopped for some lemonade, start wait timer
-            timer = Time.time + customerWaitTime;
-
             // If game time is now longer than wait time, and the customer is in a valid stop spot
             // reset their movement speed back to their original speed.
-            if ((Time.time > customerWaitTime) && isPaused) 
+            if ((Time.time > (timer + customerWaitTime)) && isPaused) 
             {
                 moveSpeed = originalSpeed;
             }
