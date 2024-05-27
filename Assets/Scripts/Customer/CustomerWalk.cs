@@ -19,6 +19,10 @@ public class CustomerWalk : MonoBehaviour
     // Customer stopping locations
     private float[] locations;
     private float stoppingLocation;
+    private GameObject[] lemonadeStands;
+
+    // Lemonade Recipie variables
+    private LemonadeRecipe lemonadeRecipe;
 
 
     // Start is called before the first frame update
@@ -26,8 +30,11 @@ public class CustomerWalk : MonoBehaviour
     {
         isPaused = false;
         originalSpeed = moveSpeed;
+        lemonadeRecipe = GetComponent<LemonadeRecipe>();
+        lemonadeStands = FindLemonadeStands();
         locations = FindPossibleStoppingPointsForCustomers();
         stoppingLocation = ChooseStoppingLocation();
+        
     }
 
     // Update is called once per frame
@@ -58,16 +65,34 @@ public class CustomerWalk : MonoBehaviour
         }
     }
 
+    // Array of all Lemonade Stands the customer could go to
+    public GameObject[] FindLemonadeStands()
+    {
+        // Create array to store lemonade stands
+        GameObject[] lemonadeStands = new GameObject[2];
+
+        // Iterate over all objects tagged with "LemonadeStand" in the scene
+        // and add them to the array
+        int index = 0;
+        foreach (GameObject lemonadeStand in GameObject.FindGameObjectsWithTag("LemonadeStand"))
+        {
+            lemonadeStands[index] = lemonadeStand;
+            index++;
+        }
+        return lemonadeStands;
+    }
     // Array of possible stopping points for the customer
     public float[] FindPossibleStoppingPointsForCustomers() 
     {
+        // Look for best lemonade stand recipie match
+        string standName = FindBestLemonadeRecipeMatch();
         // Create array to store all possible stopping locations
         float[] locations = new float[4];
 
-        // Iterate over all objects tagged with "Customer" in the scene
+        // Iterate over all objects tagged with "StoppingPoint" in the scene
         // These are small boxes hidden inside the lemonade stand
         int index = 0;
-        foreach (GameObject location in GameObject.FindGameObjectsWithTag("Customer"))
+        foreach (GameObject location in GameObject.FindGameObjectsWithTag(standName))
         {
             // Add x position of GameObject to array of possible locations
             locations[index] = location.transform.position.x;
@@ -76,10 +101,16 @@ public class CustomerWalk : MonoBehaviour
         return locations;
     }
 
+    public string FindBestLemonadeRecipeMatch()
+    {
+        // Iterate and compare lemonade stand recipes to the recipe preference of the customer
+        // TODO
+        return "StoppingPoint";
+    }
+
     // Have customer choose a random stopping location from the list of possible locations
     public float ChooseStoppingLocation() 
     {
-        // Random random = new Random();
         int location = Random.Range(0, locations.Length);
         return locations[location];
     }

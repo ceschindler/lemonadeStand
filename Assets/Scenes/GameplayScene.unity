@@ -133,9 +133,10 @@ GameObject:
   - component: {fileID: 498094007}
   - component: {fileID: 498094006}
   - component: {fileID: 498094005}
+  - component: {fileID: 498094008}
   m_Layer: 0
   m_Name: Customer (2)
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +224,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &498094008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498094004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lemonContent: 0
+  sugarContent: 0
+  waterContent: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,9 +426,10 @@ GameObject:
   - component: {fileID: 557932217}
   - component: {fileID: 557932216}
   - component: {fileID: 557932215}
+  - component: {fileID: 557932218}
   m_Layer: 0
   m_Name: Customer (1)
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -500,6 +517,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557932218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557932214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lemonContent: 1
+  sugarContent: 2
+  waterContent: 3
 --- !u!1 &723916756
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,9 +543,10 @@ GameObject:
   - component: {fileID: 723916758}
   - component: {fileID: 723916757}
   - component: {fileID: 723916759}
+  - component: {fileID: 723916760}
   m_Layer: 0
   m_Name: Customer
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -601,6 +634,21 @@ MonoBehaviour:
   horizontalMovement: 0.05
   verticalMovement: 0
   customerWaitTime: 2
+--- !u!114 &723916760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723916756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lemonContent: 3
+  sugarContent: 4
+  waterContent: 5
 --- !u!1 &734251904
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,9 +660,10 @@ GameObject:
   - component: {fileID: 734251907}
   - component: {fileID: 734251906}
   - component: {fileID: 734251905}
+  - component: {fileID: 734251908}
   m_Layer: 0
   m_Name: Customer (3)
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,6 +751,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &734251908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734251904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lemonContent: 10
+  sugarContent: 10
+  waterContent: 10
 --- !u!1 &740132717
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,7 +778,7 @@ GameObject:
   - component: {fileID: 740132719}
   m_Layer: 0
   m_Name: StoppingPoint (2)
-  m_TagString: Customer
+  m_TagString: StoppingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,9 +860,10 @@ GameObject:
   m_Component:
   - component: {fileID: 932963604}
   - component: {fileID: 932963603}
+  - component: {fileID: 932963605}
   m_Layer: 0
   m_Name: PlayerLemonadeStand
-  m_TagString: Untagged
+  m_TagString: LemonadeStand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -873,6 +938,21 @@ Transform:
   - {fileID: 1702654160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932963605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932963602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lemonContent: 3
+  sugarContent: 4
+  waterContent: 5
 --- !u!1 &1181332529
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,9 +963,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1181332531}
   - component: {fileID: 1181332530}
+  - component: {fileID: 1181332532}
+  - component: {fileID: 1181332533}
   m_Layer: 0
   m_Name: OpponentLemonadeStand
-  m_TagString: Untagged
+  m_TagString: LemonadeStand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,6 +1042,33 @@ Transform:
   - {fileID: 1886612615}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1181332532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181332529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lemonContent: 10
+  sugarContent: 10
+  waterContent: 10
+--- !u!114 &1181332533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181332529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbb5fd5c4fd340b6a7befb92d61805c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1227953416
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,7 +1249,7 @@ GameObject:
   - component: {fileID: 1609110561}
   m_Layer: 0
   m_Name: StoppingPoint
-  m_TagString: Customer
+  m_TagString: StoppingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1224,7 +1333,7 @@ GameObject:
   - component: {fileID: 1702654161}
   m_Layer: 0
   m_Name: StoppingPoint (1)
-  m_TagString: Customer
+  m_TagString: StoppingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,7 +1417,7 @@ GameObject:
   - component: {fileID: 1886612616}
   m_Layer: 0
   m_Name: StoppingPoint (3)
-  m_TagString: Customer
+  m_TagString: StoppingPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
