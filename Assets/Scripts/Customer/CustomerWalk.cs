@@ -9,7 +9,7 @@ public class CustomerWalk : MonoBehaviour
     private float originalSpeed;
     private float xPosition;
     public float horizontalMovement;
-    public float verticalMovement;
+    public float verticalMovement; // If we want to try to make the customer 'appear' to walk 'up' to the stand
 
     // Customer pause variables for getting lemonade
     private bool isPaused;
@@ -19,6 +19,8 @@ public class CustomerWalk : MonoBehaviour
     // Customer stopping locations
     private float[] locations;
     private float stoppingLocation;
+
+    // Tuple array of all recipes from the lemonade stands
     private (LemonadeRecipe, string)[] lemonadeStandRecipes;
 
     // Customer specific Lemonade Recipie
@@ -87,8 +89,7 @@ public class CustomerWalk : MonoBehaviour
     {
         // Look for best lemonade stand recipie match
         string standName = FindBestLemonadeRecipeMatch();
-        Debug.Log("%%%%%%%%%%%% Found Best Match %%%%%%%%");
-        Debug.Log(standName);
+
         // Create array to store all possible stopping locations
         float[] locations = new float[2];
 
@@ -106,6 +107,7 @@ public class CustomerWalk : MonoBehaviour
             else if (standName == "Finish") // If no match, run off screen without stopping
             {
                 // This scenario shouldn't happen if Customers match properly to their "best matches"
+                // but if we somehow get here, at least it's handled.
                 locations[index] = 10;
                 locations[index + 1] = 10;
                 break;
@@ -119,7 +121,7 @@ public class CustomerWalk : MonoBehaviour
     public string FindBestLemonadeRecipeMatch()
     {
         // Lemonade stand name for where the customer will stop
-        string bestMatchLemonadeStand = "";
+        string bestMatchLemonadeStand = "Finish";
 
         // Holds the difference in value from customer recipe to lemonade stand's recipe
         // Will update with each "better" match as we loop through stands
@@ -151,8 +153,6 @@ public class CustomerWalk : MonoBehaviour
                 currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.waterContent - lemonadeRecipe.waterContent);
 
                 // Compare recipe values and assign name of best match lemonade stand
-                Debug.Log("$$$$$$$$ " + this + " $$$$$$$$$$$");
-                Debug.Log(currentRecipeValue);
                 if (currentRecipeValue < bestMatchRecipeValue)
                 {
                     bestMatchRecipeValue = currentRecipeValue;
