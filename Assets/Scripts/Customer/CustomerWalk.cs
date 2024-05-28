@@ -19,9 +19,9 @@ public class CustomerWalk : MonoBehaviour
     // Customer stopping locations
     private float[] locations;
     private float stoppingLocation;
-    private GameObject[] lemonadeStands;
+    private (LemonadeRecipe, string)[] lemonadeStandRecipes;
 
-    // Lemonade Recipie variables
+    // Customer specific Lemonade Recipie
     private LemonadeRecipe lemonadeRecipe;
 
 
@@ -31,7 +31,7 @@ public class CustomerWalk : MonoBehaviour
         isPaused = false;
         originalSpeed = moveSpeed;
         lemonadeRecipe = GetComponent<LemonadeRecipe>();
-        lemonadeStands = FindLemonadeStands();
+        lemonadeStandRecipes = FindLemonadeStandRecipes();
         locations = FindPossibleStoppingPointsForCustomers();
         stoppingLocation = ChooseStoppingLocation();
         
@@ -65,50 +65,107 @@ public class CustomerWalk : MonoBehaviour
         }
     }
 
-    // Array of all Lemonade Stands the customer could go to
-    public GameObject[] FindLemonadeStands()
+    // Array of all Lemonade recipes of the Lemonade Stands the 
+    // customer could go to.
+    public (LemonadeRecipe, string)[] FindLemonadeStandRecipes()
     {
-        // Create array to store lemonade stands
-        GameObject[] lemonadeStands = new GameObject[2];
+        // Create a Tuple array to store lemonade recipes and their corresponding stand name
+        (LemonadeRecipe, string)[] lemonadeRecipes = new (LemonadeRecipe, string)[2];
 
         // Iterate over all objects tagged with "LemonadeStand" in the scene
-        // and add them to the array
+        // and add their recipe and name to the array
         int index = 0;
         foreach (GameObject lemonadeStand in GameObject.FindGameObjectsWithTag("LemonadeStand"))
         {
-            lemonadeStands[index] = lemonadeStand;
+            lemonadeRecipes[index] = (lemonadeStand.GetComponent<LemonadeRecipe>(), lemonadeStand.name);
             index++;
         }
-        return lemonadeStands;
+        return lemonadeRecipes;
     }
     // Array of possible stopping points for the customer
     public float[] FindPossibleStoppingPointsForCustomers() 
     {
         // Look for best lemonade stand recipie match
         string standName = FindBestLemonadeRecipeMatch();
+        Debug.Log("%%%%%%%%%%%% Found Best Match %%%%%%%%");
+        Debug.Log(standName);
         // Create array to store all possible stopping locations
-        float[] locations = new float[4];
+        float[] locations = new float[2];
 
         // Iterate over all objects tagged with "StoppingPoint" in the scene
         // These are small boxes hidden inside the lemonade stand
         int index = 0;
-        foreach (GameObject location in GameObject.FindGameObjectsWithTag(standName))
+        foreach (GameObject location in GameObject.FindGameObjectsWithTag("StoppingPoint"))
         {
-            // Add x position of GameObject to array of possible locations
-            locations[index] = location.transform.position.x;
-            index++;
+            // Add x position of LemonadeStands that a customer can stop at.
+            if (location.transform.parent.name == standName)
+            {
+                locations[index] = location.transform.position.x;
+                index++;
+            }
+            else if (standName == "Finish") // If no match, run off screen without stopping
+            {
+                // This scenario shouldn't happen if Customers match properly to their "best matches"
+                locations[index] = 10;
+                locations[index + 1] = 10;
+                break;
+            }
         }
         return locations;
     }
 
+    // Iterate through Lemonade stands and their recipes and compare them to the Customer
+    // recipe preferences to determine best match for lemonade.
     public string FindBestLemonadeRecipeMatch()
     {
+        // Lemonade stand name for where the customer will stop
+        string bestMatchLemonadeStand = "";
+
+        // Holds the difference in value from customer recipe to lemonade stand's recipe
+        // Will update with each "better" match as we loop through stands
+        int bestMatchRecipeValue = 30;
+
         // Iterate and compare lemonade stand recipes to the recipe preference of the customer
-        // TODO
-        return "StoppingPoint";
+        foreach ((LemonadeRecipe, string) lemonadeStandRecipe in lemonadeStandRecipes)
+        {
+            // Compare values of Customer to Lemonade Stand
+            if (lemonadeRecipe.lemonContent == lemonadeStandRecipe.Item1.lemonContent
+                    && lemonadeRecipe.sugarContent == lemonadeStandRecipe.Item1.sugarContent
+                    && lemonadeRecipe.waterContent == lemonadeStandRecipe.Item1.waterContent)
+            {
+                // Record the name of the matching lemonade stand and break out of loop.
+                // No need to do more comparisons if there is an exact match
+                // TODO: Possible issue if player and opponent have same recipe stats. Write in fix for
+                // this situation to default to player stand at all times if this happens.
+                bestMatchLemonadeStand = lemonadeStandRecipe.Item2;
+                break;
+            } 
+            else
+            {
+                // Local variable to hold the current iteration of lemonade stand recipe value
+                int currentRecipeValue = 0;
+
+                // Take the absolute value of the difference of each value
+                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.lemonContent - lemonadeRecipe.lemonContent);
+                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.sugarContent - lemonadeRecipe.sugarContent);
+                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.waterContent - lemonadeRecipe.waterContent);
+
+                // Compare recipe values and assign name of best match lemonade stand
+                Debug.Log("$$$$$$$$ " + this + " $$$$$$$$$$$");
+                Debug.Log(currentRecipeValue);
+                if (currentRecipeValue < bestMatchRecipeValue)
+                {
+                    bestMatchRecipeValue = currentRecipeValue;
+                    bestMatchLemonadeStand = lemonadeStandRecipe.Item2;
+                }
+            }
+        }
+        
+        return bestMatchLemonadeStand;
     }
 
-    // Have customer choose a random stopping location from the list of possible locations
+    // Have customer choose one of two stopping locations from the lemonade stand they
+    // matched with
     public float ChooseStoppingLocation() 
     {
         int location = Random.Range(0, locations.Length);
