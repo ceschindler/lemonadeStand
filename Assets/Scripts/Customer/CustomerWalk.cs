@@ -24,17 +24,26 @@ public class CustomerWalk : MonoBehaviour
     private (LemonadeRecipe, string)[] lemonadeStandRecipes;
 
     // Customer specific Lemonade Recipie
-    private LemonadeRecipe lemonadeRecipe;
+    private LemonadeRecipe customerLemonadeRecipe;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set starting Customer walking values
         isPaused = false;
         originalSpeed = moveSpeed;
-        lemonadeRecipe = GetComponent<LemonadeRecipe>();
+        
+        // Grab customer LemonadeRecipe from created component in Customer.cs
+        customerLemonadeRecipe = (LemonadeRecipe) gameObject.GetComponent<LemonadeRecipe>();
+
+        // Grab all Lemonade Stand Recipes
         lemonadeStandRecipes = FindLemonadeStandRecipes();
+
+        // Grab all possible locations a Customer can stop at
         locations = FindPossibleStoppingPointsForCustomers();
+
+        // Stopping location for this customer
         stoppingLocation = ChooseStoppingLocation();
         
     }
@@ -79,7 +88,8 @@ public class CustomerWalk : MonoBehaviour
         int index = 0;
         foreach (GameObject lemonadeStand in GameObject.FindGameObjectsWithTag("LemonadeStand"))
         {
-            lemonadeRecipes[index] = (lemonadeStand.GetComponent<LemonadeRecipe>(), lemonadeStand.name);
+            LemonadeRecipe recipe = lemonadeStand.GetComponent<LemonadeRecipe>();
+            lemonadeRecipes[index] = (recipe, lemonadeStand.name);
             index++;
         }
         return lemonadeRecipes;
@@ -131,9 +141,9 @@ public class CustomerWalk : MonoBehaviour
         foreach ((LemonadeRecipe, string) lemonadeStandRecipe in lemonadeStandRecipes)
         {
             // Compare values of Customer to Lemonade Stand
-            if (lemonadeRecipe.lemonContent == lemonadeStandRecipe.Item1.lemonContent
-                    && lemonadeRecipe.sugarContent == lemonadeStandRecipe.Item1.sugarContent
-                    && lemonadeRecipe.waterContent == lemonadeStandRecipe.Item1.waterContent)
+            if (customerLemonadeRecipe.GetLemonContent() == lemonadeStandRecipe.Item1.GetLemonContent()
+                    && customerLemonadeRecipe.GetSugarContent() == lemonadeStandRecipe.Item1.GetSugarContent()
+                    && customerLemonadeRecipe.GetWaterContent() == lemonadeStandRecipe.Item1.GetWaterContent())
             {
                 // Record the name of the matching lemonade stand and break out of loop.
                 // No need to do more comparisons if there is an exact match
@@ -148,9 +158,9 @@ public class CustomerWalk : MonoBehaviour
                 int currentRecipeValue = 0;
 
                 // Take the absolute value of the difference of each value
-                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.lemonContent - lemonadeRecipe.lemonContent);
-                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.sugarContent - lemonadeRecipe.sugarContent);
-                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.waterContent - lemonadeRecipe.waterContent);
+                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.GetLemonContent() - customerLemonadeRecipe.GetLemonContent());
+                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.GetSugarContent() - customerLemonadeRecipe.GetSugarContent());
+                currentRecipeValue += Mathf.Abs(lemonadeStandRecipe.Item1.GetWaterContent() - customerLemonadeRecipe.GetWaterContent());
 
                 // Compare recipe values and assign name of best match lemonade stand
                 if (currentRecipeValue < bestMatchRecipeValue)
