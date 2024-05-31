@@ -157,6 +157,11 @@ public class IngredientMenu : MonoBehaviour
 
     private void yesClicked()
     {
+        LemonadeRecipe recipe = (LemonadeRecipe) GameObject.Find("PlayerLemonadeRecipe").GetComponent<LemonadeRecipe>();
+        recipe.SetLemonContent(totalLemons);
+        recipe.SetSugarContent(totalSugar);
+        recipe.SetWaterContent(totalWater);
+        DontDestroyOnLoad(recipe);
         confirmationWindow1.gameObject.SetActive(false);
     }
 

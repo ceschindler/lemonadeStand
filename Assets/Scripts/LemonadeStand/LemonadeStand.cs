@@ -12,11 +12,18 @@ public class LemonadeStand : MonoBehaviour
     {
         // Add recipe component to LemonadeStand GameObject
         recipe = gameObject.AddComponent<LemonadeRecipe>();
-
-        // Create Lemonade Stand Recipe randomly
-        recipe.SetLemonContent(Random.Range(0, 11));
-        recipe.SetSugarContent(Random.Range(0, 11));
-        recipe.SetWaterContent(Random.Range(0, 11));
+        
+        if (gameObject.name == "PlayerLemonadeStand")
+        {
+            recipe.AssignPlayerLemonadeRecipe();
+        }
+        else
+        {
+            // Create Lemonade Stand Recipe randomly
+            recipe.SetLemonContent(Random.Range(0, 11));
+            recipe.SetSugarContent(Random.Range(0, 11));
+            recipe.SetWaterContent(Random.Range(0, 11));
+        }
     }
 
     // Update is called once per frame

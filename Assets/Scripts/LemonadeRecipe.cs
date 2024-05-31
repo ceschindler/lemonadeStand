@@ -60,4 +60,13 @@ public class LemonadeRecipe : MonoBehaviour
     {
         waterContent = waterValue;
     }
+
+    // Assign player lemonade recipe from menu
+    public void AssignPlayerLemonadeRecipe() 
+    {
+        LemonadeRecipe recipe = GameObject.Find("PlayerLemonadeRecipe").GetComponent<LemonadeRecipe>();
+        this.SetLemonContent(recipe.GetLemonContent());
+        this.SetSugarContent(recipe.GetSugarContent());
+        this.SetWaterContent(recipe.GetWaterContent());
+    }
 }

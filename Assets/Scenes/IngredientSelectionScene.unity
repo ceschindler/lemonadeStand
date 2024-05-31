@@ -2930,7 +2930,7 @@ GameObject:
   - component: {fileID: 1600343145}
   m_Layer: 5
   m_Name: IngredientMenuCanvas
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3007,7 +3007,7 @@ RectTransform:
   m_GameObject: {fileID: 1600343140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.11, y: 1.11, z: 1.11}
+  m_LocalScale: {x: 0.9267191, y: 0.81601655, z: 0.9628251}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1882991821}
@@ -3032,7 +3032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 444, y: 361.5}
+  m_AnchoredPosition: {x: 475, y: 262}
   m_SizeDelta: {x: 800, y: 651.3513}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1600343145
@@ -3408,6 +3408,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210fd4bcfdcbc9a4d9ef44bdc988e86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1697911869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1697911871}
+  - component: {fileID: 1697911870}
+  m_Layer: 0
+  m_Name: PlayerLemonadeRecipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1697911870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697911869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad7fc508f2a64cddaf77d6661c7ed2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1697911871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697911869}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 376.28833, y: 209.21416, z: 1.9949085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1699484862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4550,3 +4594,4 @@ SceneRoots:
   - {fileID: 576282805}
   - {fileID: 596206726}
   - {fileID: 1495826115}
+  - {fileID: 1697911871}

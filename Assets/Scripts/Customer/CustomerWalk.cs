@@ -140,6 +140,12 @@ public class CustomerWalk : MonoBehaviour
         // Iterate and compare lemonade stand recipes to the recipe preference of the customer
         foreach ((LemonadeRecipe, string) lemonadeStandRecipe in lemonadeStandRecipes)
         {
+            Debug.Log("Customer recipe - Lemons: " + customerLemonadeRecipe.GetLemonContent()
+                    + ", Sugar: " + customerLemonadeRecipe.GetSugarContent() + ", Water: "
+                    + customerLemonadeRecipe.GetWaterContent());
+            Debug.Log("Lemonade Stand recipe - Lemons: " + lemonadeStandRecipe.Item1.GetLemonContent()
+                    + ", Sugar: " + lemonadeStandRecipe.Item1.GetSugarContent() + ", Water: "
+                    + lemonadeStandRecipe.Item1.GetWaterContent());
             // Compare values of Customer to Lemonade Stand
             if (customerLemonadeRecipe.GetLemonContent() == lemonadeStandRecipe.Item1.GetLemonContent()
                     && customerLemonadeRecipe.GetSugarContent() == lemonadeStandRecipe.Item1.GetSugarContent()
