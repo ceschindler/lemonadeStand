@@ -207,7 +207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 544285783}
         m_TargetAssemblyTypeName: SceneChangeScript, Assembly-CSharp
-        m_MethodName: ingredientsSelectionScene
+        m_MethodName: IngredientsSelectionScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

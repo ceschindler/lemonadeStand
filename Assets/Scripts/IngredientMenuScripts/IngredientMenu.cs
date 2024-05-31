@@ -122,7 +122,7 @@ public class IngredientMenu : MonoBehaviour
     // Submit Button Logic
     public void submitButton1()
     {
-        Debug.Log("Submit Pressed");
+        // Debug.Log("Submit Pressed");
         totalLemons = counterLemon;
         totalSugar = counterSugar;
         totalWater = counterWater;
