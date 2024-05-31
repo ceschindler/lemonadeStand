@@ -3537,7 +3537,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 596206730}
         m_TargetAssemblyTypeName: SceneChangeScript, Assembly-CSharp
-        m_MethodName: gameplayScene
+        m_MethodName: GameplayScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

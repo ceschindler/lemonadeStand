@@ -140,12 +140,12 @@ public class CustomerWalk : MonoBehaviour
         // Iterate and compare lemonade stand recipes to the recipe preference of the customer
         foreach ((LemonadeRecipe, string) lemonadeStandRecipe in lemonadeStandRecipes)
         {
-            Debug.Log("Customer recipe - Lemons: " + customerLemonadeRecipe.GetLemonContent()
-                    + ", Sugar: " + customerLemonadeRecipe.GetSugarContent() + ", Water: "
-                    + customerLemonadeRecipe.GetWaterContent());
-            Debug.Log("Lemonade Stand recipe - Lemons: " + lemonadeStandRecipe.Item1.GetLemonContent()
-                    + ", Sugar: " + lemonadeStandRecipe.Item1.GetSugarContent() + ", Water: "
-                    + lemonadeStandRecipe.Item1.GetWaterContent());
+            // Debug.Log("Customer recipe - Lemons: " + customerLemonadeRecipe.GetLemonContent()
+            //         + ", Sugar: " + customerLemonadeRecipe.GetSugarContent() + ", Water: "
+            //         + customerLemonadeRecipe.GetWaterContent());
+            // Debug.Log("Lemonade Stand recipe - Lemons: " + lemonadeStandRecipe.Item1.GetLemonContent()
+            //         + ", Sugar: " + lemonadeStandRecipe.Item1.GetSugarContent() + ", Water: "
+            //         + lemonadeStandRecipe.Item1.GetWaterContent());
             // Compare values of Customer to Lemonade Stand
             if (customerLemonadeRecipe.GetLemonContent() == lemonadeStandRecipe.Item1.GetLemonContent()
                     && customerLemonadeRecipe.GetSugarContent() == lemonadeStandRecipe.Item1.GetSugarContent()
@@ -176,10 +176,19 @@ public class CustomerWalk : MonoBehaviour
                 }
             }
         }
-        
+        // After the best match stand has been chosen, increment the customer counter
+        IncrementCounterForCustomerVisit(bestMatchLemonadeStand);
         return bestMatchLemonadeStand;
     }
 
+    // Increment counter for lemonade stand when a customer has chosen to stop there
+    // This is how we will choose the 'winner' of the round
+    public void IncrementCounterForCustomerVisit(string lemonadeStandName)
+    {
+        LemonadeStand lemonadeStand = GameObject.Find(lemonadeStandName).GetComponent<LemonadeStand>();
+        lemonadeStand.SetCustomerCount(lemonadeStand.GetCustomerCount() + 1);
+        Debug.Log(lemonadeStand + " has " + lemonadeStand.GetCustomerCount() + " Customers");
+    }
     // Have customer choose one of two stopping locations from the lemonade stand they
     // matched with
     public float ChooseStoppingLocation() 
