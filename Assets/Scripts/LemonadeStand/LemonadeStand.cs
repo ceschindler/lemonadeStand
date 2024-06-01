@@ -5,7 +5,6 @@ using UnityEngine;
 public class LemonadeStand : MonoBehaviour
 {
     // Private variable recipe
-    // If we need access to this at some point, create get/set methods
     private LemonadeRecipe recipe;
     private int customerCount;
     // Start is called before the first frame update
@@ -16,6 +15,7 @@ public class LemonadeStand : MonoBehaviour
         
         if (gameObject.name == "PlayerLemonadeStand")
         {
+            // Assign player recipe from menu
             recipe.AssignPlayerLemonadeRecipe();
         }
         else
