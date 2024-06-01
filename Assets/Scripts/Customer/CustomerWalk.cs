@@ -10,6 +10,7 @@ public class CustomerWalk : MonoBehaviour
     private float xPosition;
     public float horizontalMovement;
     public float verticalMovement; // If we want to try to make the customer 'appear' to walk 'up' to the stand
+    public bool finished;
 
     // Customer pause variables for getting lemonade
     private bool isPaused;
@@ -44,8 +45,7 @@ public class CustomerWalk : MonoBehaviour
         locations = FindPossibleStoppingPointsForCustomers();
 
         // Stopping location for this customer
-        stoppingLocation = ChooseStoppingLocation();
-        
+        stoppingLocation = ChooseStoppingLocation();   
     }
 
     // Update is called once per frame
