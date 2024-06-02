@@ -7,7 +7,7 @@ public class SceneChangeScript : MonoBehaviour
 {
     public void StartMenuScene() 
     {
-        SceneManager.LoadScene("StartMenuScene");
+        SceneManager.LoadScene("StartMenu");
     }
     public void IngredientsSelectionScene()
     {
