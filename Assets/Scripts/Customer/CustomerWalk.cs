@@ -80,8 +80,9 @@ public class CustomerWalk : MonoBehaviour
     // customer could go to.
     public (LemonadeRecipe, string)[] FindLemonadeStandRecipes()
     {
+        // How big do we need the array to be?
         // Create a Tuple array to store lemonade recipes and their corresponding stand name
-        (LemonadeRecipe, string)[] lemonadeRecipes = new (LemonadeRecipe, string)[2];
+        (LemonadeRecipe, string)[] lemonadeRecipes = new (LemonadeRecipe, string)[GameObject.FindGameObjectsWithTag("LemonadeStand").Length];
 
         // Iterate over all objects tagged with "LemonadeStand" in the scene
         // and add their recipe and name to the array

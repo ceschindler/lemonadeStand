@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/IngredientSelectionScene.unity
     guid: 5a16222a20676ed449b2c2d2bbdf8dc0
   - enabled: 1
-    path: Assets/Scenes/GameplayScene.unity
+    path: Assets/Scenes/GameplaySceneFirstRound.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/PostRoundRecap.unity
+    path: Assets/Scenes/PostRoundRecapFinalRound.unity
     guid: a710586a60a714739860b52c99c0e7da
+  - enabled: 1
+    path: Assets/Scenes/GameplaySceneFinalRound.unity
+    guid: 665ba7a95290f4e7fa74ccc46fe35254
+  - enabled: 1
+    path: Assets/Scenes/PostRoundRecapFirstRound.unity
+    guid: 2c2d993a38d8b4aac921ba1a4e1f7e00
   m_configObjects: {}

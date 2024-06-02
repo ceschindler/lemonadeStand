@@ -69,7 +69,7 @@ public class CompleteRound : MonoBehaviour
             postRoundStats.SetLemonadeStandCounts(lemonadeStandCustomerCounts);
             DontDestroyOnLoad(postRoundStats);
             // All customers have passed the finish block, show post game recap
-            sceneChange.PostRoundScene();
+            sceneChange.PostRoundScene(gameObject.name);
         }
     }
 
@@ -86,7 +86,7 @@ public class CompleteRound : MonoBehaviour
     public (string, int)[] GetLemonadeStandCounts()
     {
         // Create a Tuple array to store lemonade stand names and their corresponding customer counts
-        (string, int)[] lemonadeStandCounts = new (string, int)[2];
+        (string, int)[] lemonadeStandCounts = new (string, int)[GameObject.FindGameObjectsWithTag("LemonadeStand").Length];
 
         // Iterate over all objects tagged with "LemonadeStand" in the scene
         // and add their stand name and customer count to the array
