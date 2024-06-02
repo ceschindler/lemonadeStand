@@ -7,10 +7,12 @@ public class SceneChangeScript : MonoBehaviour
 {
     public void StartMenuScene() 
     {
+        
         SceneManager.LoadScene("StartMenu");
     }
     public void IngredientsSelectionScene()
     {
+        
         SceneManager.LoadScene("IngredientSelectionScene");
     }
     public void GameplayScene()
