@@ -65,7 +65,9 @@ public class CompleteRound : MonoBehaviour
             // Grab corresponding counters for lemonade stands and
             // save them to display in post game recap
             // LemonadeRecipe recipe = (LemonadeRecipe) GameObject.Find("PlayerLemonadeRecipe").GetComponent<LemonadeRecipe>();
-            DontDestroyOnLoad(gameObject);
+            PostRoundStats postRoundStats = (PostRoundStats) GameObject.Find("PostRoundStats").GetComponent<PostRoundStats>();
+            postRoundStats.SetLemonadeStandCounts(lemonadeStandCustomerCounts);
+            DontDestroyOnLoad(postRoundStats);
             // All customers have passed the finish block, show post game recap
             sceneChange.PostRoundScene();
         }
@@ -92,6 +94,7 @@ public class CompleteRound : MonoBehaviour
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("LemonadeStand"))
         {
             LemonadeStand lemonadeStand = go.GetComponent<LemonadeStand>();
+            Debug.Log(go.name + " had " + lemonadeStand.GetCustomerCount() + " customers");
             lemonadeStandCounts[index] = (go.name, lemonadeStand.GetCustomerCount());
             index++;
         }
