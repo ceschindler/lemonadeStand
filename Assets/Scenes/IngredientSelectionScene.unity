@@ -3535,9 +3535,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 596206730}
-        m_TargetAssemblyTypeName: SceneChangeScript, Assembly-CSharp
-        m_MethodName: GameplayScene
+      - m_Target: {fileID: 1600343145}
+        m_TargetAssemblyTypeName: IngredientMenu, Assembly-CSharp
+        m_MethodName: yesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

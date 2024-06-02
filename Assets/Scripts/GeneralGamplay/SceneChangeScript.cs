@@ -15,12 +15,24 @@ public class SceneChangeScript : MonoBehaviour
         
         SceneManager.LoadScene("IngredientSelectionScene");
     }
-    public void GameplayScene()
+    public void GameplaySceneFinalRound()
     {
-        SceneManager.LoadScene("GameplayScene");
+        SceneManager.LoadScene("GameplaySceneFinalRound");
     }
-    public void PostRoundScene()
+    public void GameplaySceneFirstRound()
     {
-        SceneManager.LoadScene("PostRoundRecap");
+        SceneManager.LoadScene("GameplaySceneFirstRound");
+    }
+    public void PostRoundScene(string roundName)
+    {
+        if (roundName == "FirstRound")
+        {
+            SceneManager.LoadScene("PostRoundRecapFirstRound");
+        }
+        else 
+        {
+            SceneManager.LoadScene("PostRoundRecapFinalRound");
+        }
+        
     }
 }

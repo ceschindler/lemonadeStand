@@ -22,6 +22,9 @@ public class IngredientMenu : MonoBehaviour
     int totalLemons;
     int totalSugar;
     int totalWater;
+
+    // Scene change script variable
+    private SceneChangeScript sceneChange;
     
     //Increases Lemon Amount
     // increments counter to limit of 10
@@ -148,7 +151,6 @@ public class IngredientMenu : MonoBehaviour
     // Creating Field for Window
     [SerializeField] private ConfirmationWindow2 confirmationWindow1;
     private void openConfirmationWindow()
-    //private void openConfirmationWindow();
     {
         confirmationWindow1.gameObject.SetActive(true);
         confirmationWindow1.yesButton.onClick.AddListener(yesClicked);
@@ -162,6 +164,16 @@ public class IngredientMenu : MonoBehaviour
         recipe.SetSugarContent(totalSugar);
         recipe.SetWaterContent(totalWater);
         DontDestroyOnLoad(recipe);
+        GameObject finalRound = GameObject.Find("FinalLevel");
+        Debug.Log(finalRound);
+        if (finalRound)
+        {
+            sceneChange.GameplaySceneFinalRound();
+        }
+        else
+        {
+            sceneChange.GameplaySceneFirstRound();
+        }
         confirmationWindow1.gameObject.SetActive(false);
     }
 
@@ -180,6 +192,7 @@ public class IngredientMenu : MonoBehaviour
             counterLemon = 0;
             counterSugar = 0;
             counterWater = 0;
+            sceneChange = (SceneChangeScript) GameObject.Find("confirmationCanvas1").GetComponent<SceneChangeScript>();
         }
         // Update is called once per frame
         void Update()
