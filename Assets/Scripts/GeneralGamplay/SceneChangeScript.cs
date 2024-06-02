@@ -5,16 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class SceneChangeScript : MonoBehaviour
 {
-    public void startMenuScene() 
+    public void StartMenuScene() 
     {
-        SceneManager.LoadScene("StartMenuScene");
+        SceneManager.LoadScene("StartMenu");
     }
-    public void ingredientsSelectionScene()
+    public void IngredientsSelectionScene()
     {
         SceneManager.LoadScene("IngredientSelectionScene");
     }
-    public void gameplayScene()
+    public void GameplayScene()
     {
         SceneManager.LoadScene("GameplayScene");
+    }
+    public void PostRoundScene()
+    {
+        SceneManager.LoadScene("PostRoundRecap");
     }
 }
