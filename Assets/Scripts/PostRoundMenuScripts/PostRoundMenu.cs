@@ -21,6 +21,8 @@ public class PostRoundMenu : MonoBehaviour
     private SceneChangeScript sceneChange;
     // Reference to lemonadeStand names
     private GrabLemonadeStandName lemonadeStandNames;
+    // Reference to win/loss text field
+    private TextMeshProUGUI winLossText;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,12 @@ public class PostRoundMenu : MonoBehaviour
             opponentStatLabel2 = (TextMeshProUGUI) GameObject.Find("opponentLemonadeStandLabel2").GetComponent<TextMeshProUGUI>();
             opponentLemonadeStandCustomerCount2 = (TextMeshProUGUI) GameObject.Find("opponentLemonadeStandCustomerCount2").GetComponent<TextMeshProUGUI>();
         }
+        else
+        {
+            // create an empty object for comparison in final round
+            opponentLemonadeStandCustomerCount2 = new TextMeshProUGUI();
+            opponentLemonadeStandCustomerCount2.text = "0";
+        }
         
         // Update text on screen to match stats from last round
         foreach ((string, int) stat in postRoundStats.GetLemonadeStandCounts())
@@ -50,8 +58,16 @@ public class PostRoundMenu : MonoBehaviour
             UpdateCustomerCountTextAndLabel(stat);
         }
 
+        // Grab reference to Win/Loss text item
+        winLossText = (TextMeshProUGUI) GameObject.Find("youWinOrLose").GetComponent<TextMeshProUGUI>();
         // Initialize scene change script in object
         sceneChange = (SceneChangeScript) gameObject.GetComponent<SceneChangeScript>();
+
+        // Change win/lost text at header of screen
+        ShowWinLossText();
+
+        // Determin if next level button should be visible or not
+        ShowNextLevelButton();
     }
 
     // Update is called once per frame
@@ -74,8 +90,9 @@ public class PostRoundMenu : MonoBehaviour
         // Update LemonadeStandName with winning name
         lemonadeStandNames.UpdateLemonadeStandNamesWithWinner(int.Parse(opponentLemonadeStandCustomerCount1.text), 
                                                                 int.Parse(opponentLemonadeStandCustomerCount2.text));
-        GameObject finalLevel = GameObject.Find("FinalLevel");
-        if (finalLevel)
+        FinalLevel finalLevel = (FinalLevel) GameObject.Find("FinalLevel").GetComponent<FinalLevel>();
+        finalLevel.SetIsFinalLevel(true);
+        if (finalLevel.GetIsFinalLevel())
         {
             DontDestroyOnLoad(finalLevel);
         }
@@ -110,6 +127,72 @@ public class PostRoundMenu : MonoBehaviour
             opponentStatLabel2.text = lemonadeStandNames.GetOpponentLemonadeStandName(2);
             opponentLemonadeStandCustomerCount2.text = stat.Item2.ToString();
         }
-        
+    }
+
+    // Show win/lose text based on user's performance
+    public void ShowWinLossText()
+    {
+        int didWeWin = DidWeWin();
+        if (didWeWin == 1)
+        {
+            winLossText.text = "You WIN! ";
+            if (gameObject.scene.name == "PostRoundRecapFinalRound")
+            {
+                winLossText.text += "You are the LAST Lemonade STAND! Thanks for playing";
+            }
+        }
+        else if (didWeWin == 2)
+        {
+            winLossText.text = "You probably TIED.";
+        }
+        else if (didWeWin == 3)
+        {
+            winLossText.text = "You LOSE.. We must defeat those meddling kids! Try Again";
+        }
+        else
+        {
+            winLossText.text = "We didn't account for this... Good job!";
+        }
+    }
+
+    // Game conditions
+    // Return ints to signify game state as win/loss/draw
+    public int DidWeWin()
+    {
+        // FinalLevel finalLevel = (FinalLevel) GameObject.Find("FinalLevel").GetComponent<FinalLevel>();
+        // if (finalLevel.GetIsFinalLevel())
+        // {
+        //     opponentLemonadeStandCustomerCount2.text = "0";
+        // }
+        if (int.Parse(playerLemonadeStandCustomerCount.text) > int.Parse(opponentLemonadeStandCustomerCount1.text)
+                && int.Parse(playerLemonadeStandCustomerCount.text) > int.Parse(opponentLemonadeStandCustomerCount2.text))
+        {
+            return 1;
+        }
+        else if ((int.Parse(playerLemonadeStandCustomerCount.text) > int.Parse(opponentLemonadeStandCustomerCount1.text)
+                && int.Parse(playerLemonadeStandCustomerCount.text) == int.Parse(opponentLemonadeStandCustomerCount2.text))
+                || (int.Parse(playerLemonadeStandCustomerCount.text) == int.Parse(opponentLemonadeStandCustomerCount1.text)
+                && int.Parse(playerLemonadeStandCustomerCount.text) > int.Parse(opponentLemonadeStandCustomerCount2.text))
+                || (int.Parse(playerLemonadeStandCustomerCount.text) == int.Parse(opponentLemonadeStandCustomerCount1.text)
+                && int.Parse(playerLemonadeStandCustomerCount.text) == int.Parse(opponentLemonadeStandCustomerCount2.text)))
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
+    }
+    public void ShowNextLevelButton()
+    {
+        GameObject nextLevelButton = GameObject.Find("nextLevelButton");
+        int didWeWin = DidWeWin();
+        if (didWeWin != 1)
+        {
+            if (gameObject.scene.name == "PostRoundRecapFirstRound")
+            {
+                nextLevelButton.SetActive(false);
+            }
+        }
     }
 }
