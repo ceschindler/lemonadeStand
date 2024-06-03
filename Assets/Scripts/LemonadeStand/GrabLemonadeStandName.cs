@@ -7,8 +7,11 @@ using TMPro;
 
 public class GrabLemonadeStandName : MonoBehaviour
 {
-    // Lemonade Stand name
+    // Lemonade Stand names
     private string playerLemonadeStandName;
+    private string opponentLemonadeStandName1;
+    private string opponentLemonadeStandName2;
+    private string winnerLemonadeStand;
 
     // Reference to scene change script
     private SceneChangeScript sceneChange;
@@ -31,8 +34,36 @@ public class GrabLemonadeStandName : MonoBehaviour
         return playerLemonadeStandName;
     }
 
+    public string GetOpponentLemonadeStandName1()
+    {
+        return opponentLemonadeStandName1;
+    }
+    public void SetOpponentLemonadeStandName1(string lemonadeStandText)
+    {
+        opponentLemonadeStandName1 = lemonadeStandText; 
+    }
+
+    public string GetOpponentLemonadeStandName2()
+    {
+        return opponentLemonadeStandName2;
+    }
+    public void SetOpponentLemonadeStandName2(string lemonadeStandText)
+    {
+        opponentLemonadeStandName2 = lemonadeStandText; 
+    }
+
+    public string GetWinnerLemonadeStandName()
+    {
+        return winnerLemonadeStand;
+    }
+
+    public void SetWinnerLemonadeStandName(string lemonadeStandText)
+    {
+        winnerLemonadeStand = lemonadeStandText;
+    }
+
     // Grab input field text from scene and send it forward
-    public void confirmStandNameButton() 
+    public void ConfirmStandNameButton() 
     {
         // Grab input field text and assign to script object
         TMP_InputField inputField = (TMP_InputField) GameObject.Find("InputField").GetComponent<TMP_InputField>();
@@ -44,5 +75,26 @@ public class GrabLemonadeStandName : MonoBehaviour
 
         // Move to next scene
         sceneChange.IngredientsSelectionScene();
+    }
+
+    // Append Opponent LemonadeStand names
+    public void OpponentLemonadeStandNames()
+    {
+        GrabLemonadeStandName lemonadeStandName = (GrabLemonadeStandName) GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>();
+        string opponentStandText1 = (string) GameObject.Find("OpponentLemonadeStandText1").GetComponent<TMP_Text>().text;
+        Debug.Log(opponentStandText1);
+        lemonadeStandName.SetOpponentLemonadeStandName1(opponentStandText1);
+        string opponentStandText2 = (string) GameObject.Find("OpponentLemonadeStandText2").GetComponent<TMP_Text>().text;
+        Debug.Log(opponentStandText2);
+        lemonadeStandName.SetOpponentLemonadeStandName2(opponentStandText2);
+    }
+
+    // Append winner lemonade stand name
+    public void WinnerLemonadeStandName()
+    {
+        GrabLemonadeStandName lemonadeStandName = (GrabLemonadeStandName) GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>();
+        string winnerStandText = (string) GameObject.Find("WinnerLemonadeStandText").GetComponent<TMP_Text>().text;
+        Debug.Log(winnerStandText);
+        lemonadeStandName.SetOpponentLemonadeStandName1(winnerStandText);
     }
 }

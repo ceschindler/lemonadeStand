@@ -1904,7 +1904,7 @@ GameObject:
   - component: {fileID: 1520485541}
   - component: {fileID: 1520485540}
   m_Layer: 5
-  m_Name: opponentLemonadeStandLabel (1)
+  m_Name: opponentLemonadeStandLabel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2203,7 +2203,7 @@ GameObject:
   - component: {fileID: 1957747516}
   - component: {fileID: 1957747515}
   m_Layer: 5
-  m_Name: opponentLemonadeStandLabel
+  m_Name: opponentLemonadeStandLabel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

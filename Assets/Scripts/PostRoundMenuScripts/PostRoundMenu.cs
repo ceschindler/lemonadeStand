@@ -7,10 +7,15 @@ using TMPro;
 
 public class PostRoundMenu : MonoBehaviour
 {
-    // Customer count variables/text for menu
+    // Customer variables/text for menu
+    private TextMeshProUGUI playerLemonadeStandLabel;
     private TextMeshProUGUI playerLemonadeStandCustomerCount;
+    private TextMeshProUGUI opponentLemonadeStandLabel1;
     private TextMeshProUGUI opponentLemonadeStandCustomerCount1;
+    private TextMeshProUGUI opponentLemonadeStandLabel2;
     private TextMeshProUGUI opponentLemonadeStandCustomerCount2;
+    private TextMeshProUGUI winnerLemonadeStandLabel;
+    private TextMeshProUGUI winnerLemonadeStandCustomerCount;
 
     // Post Round stats
     private PostRoundStats postRoundStats;
@@ -26,9 +31,12 @@ public class PostRoundMenu : MonoBehaviour
 
         // Grab text objects to replace counts with
         playerLemonadeStandCustomerCount = (TextMeshProUGUI) GameObject.Find("playerLemonadeStandCustomerCount").GetComponent<TextMeshProUGUI>();
+        playerLemonadeStandLabel = (TextMeshProUGUI) GameObject.Find("playerLemonadeStandLabel").GetComponent<TextMeshProUGUI>();
         opponentLemonadeStandCustomerCount1 = (TextMeshProUGUI) GameObject.Find("opponentLemonadeStandCustomerCount1").GetComponent<TextMeshProUGUI>();
+        opponentLemonadeStandLabel1 = (TextMeshProUGUI) GameObject.Find("opponentLemonadeStandLabel1").GetComponent<TextMeshProUGUI>();
         if (postRoundStats.GetLemonadeStandCounts().Length > 2)
         {
+            opponentLemonadeStandLabel2 = (TextMeshProUGUI) GameObject.Find("opponentLemonadeStandLabel2").GetComponent<TextMeshProUGUI>();
             opponentLemonadeStandCustomerCount2 = (TextMeshProUGUI) GameObject.Find("opponentLemonadeStandCustomerCount2").GetComponent<TextMeshProUGUI>();
         }
         
@@ -36,7 +44,7 @@ public class PostRoundMenu : MonoBehaviour
         foreach ((string, int) stat in postRoundStats.GetLemonadeStandCounts())
         {
             Debug.Log(stat.Item1 + " had " + stat.Item2 + " customers in the last round");
-            updateCustomerCountText(stat);
+            updateLemonadeStandNameAndCustomerCountText(stat);
         }
 
         // Initialize scene change script in object
@@ -77,21 +85,30 @@ public class PostRoundMenu : MonoBehaviour
     }
 
     // Updates text of Customer counts
-    public void updateCustomerCountText((string, int) stat)
+    public void updateLemonadeStandNameAndCustomerCountText((string, int) stat)
     {
         Debug.Log(stat.Item1);
         Debug.Log(stat.Item2);
+        GrabLemonadeStandName lemonadeStandNames = (GrabLemonadeStandName) GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>();
         if (stat.Item1 == "PlayerLemonadeStand")
         {
+            playerLemonadeStandLabel.text = lemonadeStandNames.GetPlayerLemonadeStandName();
             playerLemonadeStandCustomerCount.text = stat.Item2.ToString();
         }
         else if (stat.Item1 == "OpponentLemonadeStand1")
         {
+            opponentLemonadeStandLabel1.text = lemonadeStandNames.GetOpponentLemonadeStandName1();
             opponentLemonadeStandCustomerCount1.text = stat.Item2.ToString();
         }
         else if (stat.Item1 == "OpponentLemonadeStand2")
         {
+            opponentLemonadeStandLabel2.text = lemonadeStandNames.GetOpponentLemonadeStandName2();
             opponentLemonadeStandCustomerCount2.text = stat.Item2.ToString();
+        }
+        else
+        {
+            winnerLemonadeStandLabel.text = lemonadeStandNames.GetWinnerLemonadeStandName();
+            winnerLemonadeStandCustomerCount.text = stat.Item2.ToString();
         }
         
     }

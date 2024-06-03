@@ -28,6 +28,12 @@ public class LemonadeStand : MonoBehaviour
             string lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetPlayerLemonadeStandName();
             lemonadeStandText.text = lemonadeStandName;
         }
+        else if (gameObject.name == "WinnerLemonadeStand")
+        {
+            TMP_Text lemonadeStandText = (TMP_Text) GameObject.Find("WinnerLemonadeStandText").GetComponent<TMP_Text>();
+            string lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetWinnerLemonadeStandName();
+            lemonadeStandText.text = lemonadeStandName;
+        }
         else
         {
             // Create Lemonade Stand Recipe randomly

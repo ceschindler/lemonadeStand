@@ -37,6 +37,8 @@ public class CompleteRound : MonoBehaviour
 
         // Grab lemonade Stands and pull their customer counts
         lemonadeStandCustomerCounts = GetLemonadeStandCounts();
+
+        AssignLemonadeStandNamesToPostGameMenu();
     }
 
     // Update is called once per frame
@@ -99,5 +101,20 @@ public class CompleteRound : MonoBehaviour
             index++;
         }
         return lemonadeStandCounts;
+    }
+
+    // Assign lemonade stand names to the post game menu
+    public void AssignLemonadeStandNamesToPostGameMenu()
+    {
+        GrabLemonadeStandName lemonadeStandNames = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>();
+        GameObject finalLevel = GameObject.Find("FinalLevel");
+        if (finalLevel)
+        {
+            lemonadeStandNames.WinnerLemonadeStandName();
+        }
+        else
+        {
+            lemonadeStandNames.OpponentLemonadeStandNames();
+        }
     }
 }
