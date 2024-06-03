@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PostRoundRecapFirstRound.unity
     guid: 2c2d993a38d8b4aac921ba1a4e1f7e00
+  - enabled: 1
+    path: Assets/Scenes/IntroStoryScene.unity
+    guid: 2c487425ef26b4fd9b51a4a8f3e78ce7
+  - enabled: 1
+    path: Assets/Scenes/LemonadeStandNameScene.unity
+    guid: e6f86af936c8d4467a92512aa71f8fb1
   m_configObjects: {}

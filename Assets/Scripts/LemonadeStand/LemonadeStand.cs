@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LemonadeStand : MonoBehaviour
 {
+    // Player stand name
+    private string playerStandName;
     // Private variable recipe
     private LemonadeRecipe recipe;
+
+    // Number of customers that visited the stand
     private int customerCount;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +22,11 @@ public class LemonadeStand : MonoBehaviour
         {
             // Assign player recipe from menu
             recipe.AssignPlayerLemonadeRecipe();
+
+            // Update Lemonade stand name from text field
+            TMP_Text lemonadeStandText = (TMP_Text) GameObject.Find("PlayerLemonadeStandText").GetComponent<TMP_Text>();
+            string lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetPlayerLemonadeStandName();
+            lemonadeStandText.text = lemonadeStandName;
         }
         else
         {

@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222, y: -212}
-  m_SizeDelta: {x: 48.5509, y: 38.6563}
+  m_AnchoredPosition: {x: -205.4448, y: -207.00003}
+  m_SizeDelta: {x: 60.9949, y: 38.6563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383179367
 MonoBehaviour:
@@ -428,7 +428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.2062073}
+  m_AnchoredPosition: {x: 0, y: -4.2061768}
   m_SizeDelta: {x: -357.6135, y: -218.5881}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427227022
@@ -788,7 +788,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1071,8 +1071,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: -212}
-  m_SizeDelta: {x: 48.5509, y: 38.6563}
+  m_AnchoredPosition: {x: -315.99997, y: -207.00003}
+  m_SizeDelta: {x: 60.9949, y: 38.6563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634206492
 MonoBehaviour:
@@ -1472,8 +1472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: -32}
-  m_SizeDelta: {x: 48.5509, y: 38.6563}
+  m_AnchoredPosition: {x: -315.99997, y: -27.000029}
+  m_SizeDelta: {x: 60.9949, y: 38.6563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &851702397
 MonoBehaviour:
@@ -2141,8 +2141,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222, y: -32}
-  m_SizeDelta: {x: 48.5509, y: 38.6563}
+  m_AnchoredPosition: {x: -205.4448, y: -27.000029}
+  m_SizeDelta: {x: 60.9949, y: 38.6563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033406901
 MonoBehaviour:
@@ -2542,8 +2542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222, y: 150}
-  m_SizeDelta: {x: 48.5509, y: 38.6563}
+  m_AnchoredPosition: {x: -205.4448, y: 154.99997}
+  m_SizeDelta: {x: 60.9949, y: 38.6563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328324867
 MonoBehaviour:
@@ -2675,8 +2675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -310, y: 150}
-  m_SizeDelta: {x: 48.5509, y: 38.6563}
+  m_AnchoredPosition: {x: -316, y: 155}
+  m_SizeDelta: {x: 60.9949, y: 38.6563}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1349687187
 MonoBehaviour:
@@ -3089,7 +3089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -263}
+  m_AnchoredPosition: {x: 0, y: -273}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639341726
@@ -3161,7 +3161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9331613, g: 0.9304913, b: 0.9622642, a: 1}
+  m_Color: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3887,8 +3887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 248.05}
-  m_SizeDelta: {x: 387.2151, y: 54.0996}
+  m_AnchoredPosition: {x: 0, y: 279}
+  m_SizeDelta: {x: 471.933, y: 43.604}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882991822
 MonoBehaviour:
@@ -3910,7 +3910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ingredients
+  m_text: Craft Your Signature Recipe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

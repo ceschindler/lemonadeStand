@@ -10,6 +10,16 @@ public class SceneChangeScript : MonoBehaviour
         
         SceneManager.LoadScene("StartMenu");
     }
+
+    public void IntroStoryScene()
+    {
+        SceneManager.LoadScene("IntroStoryScene");
+    }
+
+    public void LemonadeStandNameScene()
+    {
+        SceneManager.LoadScene("LemonadeStandNameScene");
+    }
     public void IngredientsSelectionScene()
     {
         
