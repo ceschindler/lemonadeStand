@@ -9,6 +9,8 @@ public class GrabLemonadeStandName : MonoBehaviour
 {
     // Lemonade Stand name
     private string playerLemonadeStandName;
+    private string opponentLemonadeStandName1 = "Girl Scouts";
+    private string opponentLemonadeStandname2 = "Boy Scouts";
 
     // Reference to scene change script
     private SceneChangeScript sceneChange;
@@ -31,6 +33,19 @@ public class GrabLemonadeStandName : MonoBehaviour
         return playerLemonadeStandName;
     }
 
+    // Get Opponenet lemonade stand name
+    public string GetOpponentLemonadeStandName(int value)
+    {
+        if (value == 1)
+        {
+            return opponentLemonadeStandName1;
+        }
+        else
+        {
+            return opponentLemonadeStandname2;
+        }
+    }
+
     // Grab input field text from scene and send it forward
     public void confirmStandNameButton() 
     {
@@ -44,5 +59,14 @@ public class GrabLemonadeStandName : MonoBehaviour
 
         // Move to next scene
         sceneChange.IngredientsSelectionScene();
+    }
+
+    // Update Lemonade stand names with winner before going to next round
+    public void UpdateLemonadeStandNamesWithWinner(int standOneCount, int standTwoCount)
+    {
+        if (standTwoCount > standOneCount)
+        {
+            opponentLemonadeStandName1 = opponentLemonadeStandname2;
+        }
     }
 }

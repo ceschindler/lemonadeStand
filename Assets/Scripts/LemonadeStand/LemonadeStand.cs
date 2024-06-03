@@ -17,19 +17,38 @@ public class LemonadeStand : MonoBehaviour
     {
         // Add recipe component to LemonadeStand GameObject
         recipe = gameObject.AddComponent<LemonadeRecipe>();
-        
+
+        // Variables for lemonade stand name and text
+        TMP_Text lemonadeStandText;
+        string lemonadeStandName;
         if (gameObject.name == "PlayerLemonadeStand")
         {
             // Assign player recipe from menu
             recipe.AssignPlayerLemonadeRecipe();
 
             // Update Lemonade stand name from text field
-            TMP_Text lemonadeStandText = (TMP_Text) GameObject.Find("PlayerLemonadeStandText").GetComponent<TMP_Text>();
-            string lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetPlayerLemonadeStandName();
+            lemonadeStandText = (TMP_Text) GameObject.Find("PlayerLemonadeStandText").GetComponent<TMP_Text>();
+            lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetPlayerLemonadeStandName();
             lemonadeStandText.text = lemonadeStandName;
         }
         else
         {
+            if (gameObject.name == "OpponentLemonadeStand1")
+            {
+                // Update Lemonade stand name from text field
+                lemonadeStandText = (TMP_Text) GameObject.Find("OpponentLemonadeStandText1").GetComponent<TMP_Text>();
+                lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetOpponentLemonadeStandName(1);
+            }
+            else
+            {
+                // Update Lemonade stand name from text field
+                lemonadeStandText = (TMP_Text) GameObject.Find("OpponentLemonadeStandText2").GetComponent<TMP_Text>();
+                lemonadeStandName = GameObject.Find("LemonadeStandName").GetComponent<GrabLemonadeStandName>().GetOpponentLemonadeStandName(2);
+            }
+
+            // Assign lemonade stand name to "sign" above stand
+            lemonadeStandText.text = lemonadeStandName;
+            
             // Create Lemonade Stand Recipe randomly
             recipe.SetLemonContent(Random.Range(0, 11));
             recipe.SetSugarContent(Random.Range(0, 11));
